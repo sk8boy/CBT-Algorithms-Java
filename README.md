@@ -23,4 +23,4 @@ Main reference book "The Method Of Programming", author is July. All code passed
 **Chapter 5** DP
 **Chapter 6** Big Data
 **Chapter 7** ML
-**Chapter 8** Other`
+**Chapter 8** Other
