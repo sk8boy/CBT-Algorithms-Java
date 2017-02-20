@@ -18,9 +18,27 @@ Main reference book "The Method Of Programming", author is July. All code passed
 
 
 **Chapter 2** Array
+- 寻找最小的k个数
+- 寻找和为定值的两个数
+- 寻找和为定值得三个数
+- 寻找和为定值的四个数
+- 寻找和为定值的多个数（nSum）
+- 最大连续子数组和
+- 连续子数组的最大乘积
+- 最大子矩阵和
+- 最大连续子数组的增强版（允许交换位置）(暂未实现)
+- 长度最短的连续子序列
+
+
 **Chapter 3** Tree
+
 **Chapter 4** Search
+
 **Chapter 5** DP
+
 **Chapter 6** Big Data
+
 **Chapter 7** ML
+
 **Chapter 8** Other
+
