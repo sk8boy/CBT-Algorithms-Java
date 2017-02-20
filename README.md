@@ -1,7 +1,9 @@
 # CBT-Algorithms-Java
 **Achieve some commonly used algorithms for computer-Based test.**
-The main reference book is "The Method Of Programming"(编程之法-面试和算法心得), author is [July](http://my.csdn.net/v_JULY_v). All codes are tested.
-Feel free to contact me: gavinzhou_xd@163.com
+The main reference book is "The Method Of Programming"(编程之法-面试和算法心得), author is [July](http://my.csdn.net/v_JULY_v).
+
+---
+All codes are tested. Feel free to contact me: gavinzhou_xd@163.com
 
 ## Chapters
 **Chapter 1** String
