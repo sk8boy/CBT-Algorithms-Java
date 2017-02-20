@@ -1,6 +1,7 @@
 # CBT-Algorithms-Java
 **Achieve some commonly used algorithms for computer-Based test.**
-Main reference book "The Method Of Programming", author is July. All code passed.
+The main reference book is "The Method Of Programming"(编程之法-面试和算法心得体), author is [July](http://my.csdn.net/v_JULY_v). All codes are tested.
+
 ## Chapters
 **Chapter 1** String
 
