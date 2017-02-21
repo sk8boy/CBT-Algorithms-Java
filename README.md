@@ -6,7 +6,7 @@ The main reference book is "The Method Of Programming"(编程之法-面试和算
 All codes are tested. Feel free to contact me: gavinzhou_xd@163.com
 
 ## Chapters
-**Chapter 1** String
+>> **Chapter 1** *String*
 
 - 字符串的旋转
 - 单词反转
@@ -21,7 +21,9 @@ All codes are tested. Feel free to contact me: gavinzhou_xd@163.com
 - 输出最长回文子串(按照最长回文子串分割)
 
 
-**Chapter 2** Array
+>> **Chapter 2** *Array*
+
+
 - 寻找最小的k个数
 - 寻找和为定值的两个数
 - 寻找和为定值得三个数
@@ -32,13 +34,18 @@ All codes are tested. Feel free to contact me: gavinzhou_xd@163.com
 - 最大子矩阵和
 - 最大连续子数组的增强版（允许交换位置）(暂未实现)
 - 长度最短的连续子序列
+- 跳台阶问题
+- 换硬币问题（没搞明白）
+- 奇偶数排序
 
 
 **Chapter 3** Tree
 
 **Chapter 4** Search
 
+
 **Chapter 5** DP
+
 
 **Chapter 6** Big Data
 
