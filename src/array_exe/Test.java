@@ -17,8 +17,11 @@ import java.util.Collections;
  * （6）最大连续子数组和
  * （7）连续子数组的最大乘积
  * （8）最大子矩阵和
- * （9）最大连续子数组的增强版（允许交换位置）
+ * （9）最大连续子数组的增强版（允许交换位置）(暂未实现)
  * （10）长度最短的连续子序列
+ * （11）跳台阶问题
+ * （12）换硬币问题（没搞明白）
+ * （13）奇偶数排序
  */
 public class Test {
 	/**
@@ -427,6 +430,106 @@ public class Test {
 		}
 		return Collections.min(list);
 	}
+	
+	/**
+	 * （11）跳台阶问题
+	 * 题目描述：
+	 * 	一个台阶总共有allSteps级，一次可以跳1级，2级，...,maxJump级，求总共有多少种跳法
+	 * 思路：
+	 * 	递推关系,假设一次最大可以跳3级台阶,n>3时，f(n)=f(n-1)+f(n-2)+f(n-3)
+	 * @param allSteps
+	 * @param maxJump
+	 * @return
+	 */
+	private static int jumpStep(int allSteps){
+		//假定最大可以跳3级台阶
+		if(allSteps <= 0){
+			return 0;
+		}
+		//1,2,3级台阶的跳法
+		int[] ini = {1,2,4,0};
+		//n>3时，f(n)=f(n-1)+f(n-2)+f(n-3)
+		if(allSteps < 3){
+			return ini[allSteps];
+		}else{
+			//使用递推的办法，不使用递归，递归存在太多的重复计算
+			for(int i = 3; i < allSteps; i++){
+				ini[3] = ini[0] + ini[1] + ini[2];
+				ini[0] = ini[1];
+				ini[1] = ini[2];
+				ini[2] = ini[3];
+			}
+		}
+		return ini[3];
+	}
+	
+	/**
+	 * （12）换硬币问题
+	 * 题目描述：
+	 * 	想兑换一定面值的零钱，有1,2,5,10四种面值，求总可能的兑换方式
+	 * 思路：
+	 * 	不能用四个for循环，时间复杂度太高，考虑DP的算法
+	 * 	假设dp[i][j]表示使用i种硬币，兑换j元钱的总兑换数,假设Xi表示第i种硬币使用的个数,Vi表示第i中硬币的面值
+	 * 	初始条件: dp[0][j]=0,dp[i][0]=1
+	 * 	递推条件: dp[i][j]=dp[i-1][j]+dp[i][j-Vi]+dp[i][j-2*Vi]+...+dp[i][j-(j/Vi)*Vi]
+	 * 	最终要求出:dp[m][sum],m表示面值的种类数,sum表示需要兑换的钱的数量
+	 * @param coinValue
+	 * @return
+	 */
+	private static int coinExchange(int coinValue){
+		//假设是四种面值
+		int[] value = {1,2,5,10};
+		int m = 4;
+		int[][] kinds = new int[m+1][coinValue+1];
+		
+		kinds[0][0] = 1;
+		//递推关系
+		for(int i = 1; i <= m; i++){
+			for(int j = 0; j <= coinValue; j++){
+				if(j == 0){
+					kinds[i][j] = 1;
+				}else{
+					kinds[i][j] = 0;
+					for(int index = 0; index <= (j/value[i-1]); index++){
+						kinds[i][j] += kinds[i-1][j-index*value[i-1]];
+					}
+				}
+			}
+		}
+		return kinds[m][coinValue];
+	}
+	
+	/**
+	 * （13）奇偶数排序
+	 * 题目描述：
+	 * 	用O(n)的时间复杂度将整数数组排序，要求奇数在前半部分，偶数在后半部分
+	 * 思路：
+	 * 	头尾指针，类似于2Sum问题
+	 * @param ori
+	 * @return
+	 */
+	private static void oddEvenSort(int[] ori){
+		if(ori.length == 0 || ori == null){
+			return;
+		}
+		int start = 0; 
+		int end = ori.length - 1;
+		while(start < end){
+			if(ori[start] % 2 != 0){
+				//前面是奇数
+				start++;
+			}else if(ori[end] % 2 == 0){
+				//后面是偶数
+				end--;
+			}else{
+				//前面是偶数，后面是奇数
+				//前后交换
+				int t = ori[start];
+				ori[start] = ori[end];
+				ori[end] = t;
+			}
+		}
+	}
 	/**
 	 * 测试的主函数
 	 * @param args
@@ -464,11 +567,20 @@ public class Test {
 		//测试最大子矩阵的和
 		int[][] test = {{4,-2,9},{-1,3,8},{-6,7,6},{0,9,-5}};
 		System.out.println(Test.maxSubMatrixSum(test));
-		*/
 		//测试长度最短的连续子序列
 		int[] test = {1,2,1,3,2,3,2,3};
 		System.out.println(Test.minLengthSubList(test, 6));
-		
+		//测试跳台阶问题
+		System.out.println(Test.jumpStep(6));
+		//测试换硬币问题
+		System.out.println(Test.coinExchange(100));
+		*/
+		//测试奇偶排序
+		int[] test = {1,3,4,6,2,8,5};
+		Test.oddEvenSort(test);
+		for(int t : test){
+			System.out.print(t+":");
+		}
 	}
 
 }
